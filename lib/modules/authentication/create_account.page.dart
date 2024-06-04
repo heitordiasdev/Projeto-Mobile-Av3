@@ -1,5 +1,6 @@
 import 'package:project_av3/modules/home/home.page.dart';
 import 'package:flutter/material.dart';
+import 'package:project_av3/routers/router.scheme.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -90,12 +91,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 //
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),                      
-                      ),
-                    );
+                    Navigator.pushReplacementNamed(context, RoutersUtil.LOGINPAGE);
                   },
                   style: ButtonStyle(
                     fixedSize: MaterialStatePropertyAll(

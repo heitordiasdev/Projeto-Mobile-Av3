@@ -1,5 +1,6 @@
 import 'package:project_av3/modules/authentication/login.page.dart';
 import 'package:flutter/material.dart';
+import 'package:project_av3/routers/router.scheme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,12 +26,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginPage(),
-                  ),
-                );
+                Navigator.pushReplacementNamed(context, RoutersUtil.LOGINPAGE);
               },
               icon: const Icon(Icons.exit_to_app),
             ),
