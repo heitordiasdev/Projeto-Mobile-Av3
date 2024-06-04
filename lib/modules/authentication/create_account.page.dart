@@ -1,15 +1,14 @@
-import 'package:project_av3/modules/authentication/create_account.page.dart';
-import 'package:project_av3/home.page.dart';
+import 'package:project_av3/modules/home/home.page.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class CreateAccountPage extends StatefulWidget {
+  const CreateAccountPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<CreateAccountPage> createState() => _CreateAccountPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _CreateAccountPageState extends State<CreateAccountPage> {
   @override
   Widget build(BuildContext context) {
     double largura = MediaQuery.of(context).size.width;
@@ -17,6 +16,10 @@ class _LoginPageState extends State<LoginPage> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Criação de Conta"),
+          centerTitle: true,
+        ),
         body: Container(
           padding: const EdgeInsets.all(16),
           width: largura,
@@ -52,6 +55,18 @@ class _LoginPageState extends State<LoginPage> {
                 const TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
+                    label: Text("Nome"),
+                    hintText: "Digite seu nome",
+                  ),
+                ),
+                //
+                const SizedBox(
+                  height: 36,
+                ),
+                //
+                const TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
                     label: Text("E-mail"),
                     hintText: "Digite seu e-mail",
                   ),
@@ -75,10 +90,10 @@ class _LoginPageState extends State<LoginPage> {
                 //
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HomePage(),
+                        builder: (context) => const HomePage(),                      
                       ),
                     );
                   },
@@ -89,46 +104,19 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     backgroundColor: const MaterialStatePropertyAll(
-                      Colors.blueAccent,
+                      Colors.greenAccent,
                     ),
                   ),
                   child: const Text(
-                    "Entrar",
+                    "Criar Conta e Entrar",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                 ),
                 //
                 const SizedBox(
                   height: 24,
-                ),
-                //
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CreateAccountPage(),
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    fixedSize: MaterialStatePropertyAll(
-                      Size.fromWidth(
-                        largura,
-                      ),
-                    ),
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Colors.deepOrange,
-                    ),
-                  ),
-                  child: const Text(
-                    "Criar Conta",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
                 ),
                 //
               ],
